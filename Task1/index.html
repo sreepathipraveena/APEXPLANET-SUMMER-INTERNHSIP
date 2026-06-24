@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WanderWorld Travels | Modern Travel & Tourism Agency</title>
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Explore destinations, tour packages, travel blogs, and book your dream vacation with WanderWorld Travels - the leading travel expert.">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts are preloaded/imported in CSS -->
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- --- HEADER / NAVIGATION --- -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo" id="header-logo">
+                <i class="fa-solid fa-earth-americas"></i>
+                <h1>WanderWorld</h1>
+            </a>
+            <nav>
+                <div class="nav-links" id="menu-nav-links">
+                    <a href="index.html" class="active">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="destinations.html">Destinations</a>
+                    <a href="packages.html">Tour Packages</a>
+                    <a href="blog.html">Travel Blog</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+            </nav>
+            <div class="hamburger" id="nav-hamburger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- --- HERO SECTION --- -->
+    <section class="hero" id="home-hero">
+        <div class="hero-bg" style="background-image: url('images/hero_bg.jpg');"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <span class="subtitle">Explore the Extraordinary</span>
+                <h2>Wander Often. Wonder Always.</h2>
+                <p>Discover breathtaking destinations, experience rich cultures, and create lifelong memories with our curated luxury travel packages.</p>
+                <div class="hero-btn-group">
+                    <a href="packages.html" class="btn btn-primary" id="hero-cta-packages">Explore Packages</a>
+                    <a href="contact.html" class="btn btn-outline" style="color: var(--white); border-color: var(--white);" id="hero-cta-contact">Contact Expert</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Search Bar Overlay -->
+        <div class="search-bar-container">
+            <form class="search-form" id="hero-search-form">
+                <div class="form-group">
+                    <label for="search-dest">Where to?</label>
+                    <input type="text" id="search-dest" placeholder="Country, city, or place..." required>
+                </div>
+                <div class="form-group">
+                    <label for="search-type">Category</label>
+                    <select id="search-type">
+                        <option value="">All Categories</option>
+                        <option value="asia">Asia</option>
+                        <option value="europe">Europe</option>
+                        <option value="beach">Tropical Beach</option>
+                        <option value="adventure">Adventure</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="search-date">When?</label>
+                    <input type="date" id="search-date">
+                </div>
+                <div class="form-group">
+                    <label for="search-guests">Guests</label>
+                    <select id="search-guests">
+                        <option value="1">1 Guest</option>
+                        <option value="2" selected>2 Guests</option>
+                        <option value="3-5">3-5 Guests</option>
+                        <option value="6+">6+ Guests</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-secondary" id="search-btn-submit">
+                    <i class="fa-solid fa-magnifying-glass"></i> Search
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- --- POPULAR DESTINATIONS --- -->
+    <section class="section-padding reveal" style="margin-top: 5rem;" id="popular-destinations">
+        <div class="container">
+            <div class="section-header">
+                <span class="sub-title">Top Locations</span>
+                <h2 class="title">Popular Destinations</h2>
+            </div>
+            
+            <div class="destinations-grid">
+                <!-- Bali -->
+                <div class="dest-card" data-region="asia">
+                    <div class="dest-img-container">
+                        <img src="images/bali.jpg" alt="Bali Temple">
+                        <div class="dest-rating">
+                            <i class="fa-solid fa-star"></i> 4.8
+                        </div>
+                    </div>
+                    <div class="dest-card-content">
+                        <div class="dest-meta">
+                            <span class="tag tag-primary">Asia</span>
+                        </div>
+                        <h3>Bali, Indonesia</h3>
+                        <p>Immerse yourself in lush volcanic forests, picturesque rice paddies, serene beaches, and historic spiritual temples.</p>
+                        <div class="dest-card-footer">
+                            <div class="dest-price">Starting at <span>$799</span></div>
+                            <a href="destinations.html" class="dest-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paris -->
+                <div class="dest-card" data-region="europe">
+                    <div class="dest-img-container">
+                        <img src="images/paris.jpg" alt="Eiffel Tower Paris">
+                        <div class="dest-rating">
+                            <i class="fa-solid fa-star"></i> 4.9
+                        </div>
+                    </div>
+                    <div class="dest-card-content">
+                        <div class="dest-meta">
+                            <span class="tag tag-primary">Europe</span>
+                        </div>
+                        <h3>Paris, France</h3>
+                        <p>Explore architectural landmarks, world-class museum exhibitions, cozy roadside bistros, and iconic romantic avenues.</p>
+                        <div class="dest-card-footer">
+                            <div class="dest-price">Starting at <span>$1,499</span></div>
+                            <a href="destinations.html" class="dest-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Switzerland -->
+                <div class="dest-card" data-region="europe">
+                    <div class="dest-img-container">
+                        <img src="images/switzerland.jpg" alt="Swiss Alps">
+                        <div class="dest-rating">
+                            <i class="fa-solid fa-star"></i> 4.9
+                        </div>
+                    </div>
+                    <div class="dest-card-content">
+                        <div class="dest-meta">
+                            <span class="tag tag-primary">Europe</span>
+                        </div>
+                        <h3>Swiss Alps, Switzerland</h3>
+                        <p>Marvel at pristine alpine vistas, sparkling glacial lakes, quiet ski resorts, and luxury trains weaving through mountains.</p>
+                        <div class="dest-card-footer">
+                            <div class="dest-price">Starting at <span>$1,899</span></div>
+                            <a href="destinations.html" class="dest-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 4rem;">
+                <a href="destinations.html" class="btn btn-outline" id="view-all-destinations-btn">View All Destinations</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- FEATURED TOUR PACKAGES --- -->
+    <section class="section-padding reveal" style="background-color: var(--white);" id="featured-packages">
+        <div class="container">
+            <div class="section-header">
+                <span class="sub-title">Unmissable Offers</span>
+                <h2 class="title">Featured Tour Packages</h2>
+            </div>
+            
+            <div class="packages-grid">
+                <!-- Bali Tour Package -->
+                <div class="pkg-card" data-category="honeymoon">
+                    <div class="pkg-img">
+                        <img src="images/bali.jpg" alt="Bali Paradise Tour">
+                        <span class="pkg-tag">Honeymoon</span>
+                        <div class="pkg-price-badge">$799</div>
+                    </div>
+                    <div class="pkg-content">
+                        <div class="pkg-meta">
+                            <span><i class="fa-regular fa-clock"></i> 5 Days / 4 Nights</span>
+                            <span><i class="fa-regular fa-user"></i> Max Guests: 2</span>
+                        </div>
+                        <h3 class="pkg-title">Bali Paradise Retreat</h3>
+                        <p class="pkg-description">Enjoy luxury private overwater villas, romantic candle-lit dinners on the beach, and relaxing traditional couples massages.</p>
+                        <div class="pkg-features">
+                            <span><i class="fa-solid fa-check"></i> 5-Star Hotel</span>
+                            <span><i class="fa-solid fa-check"></i> Flights Included</span>
+                            <span><i class="fa-solid fa-check"></i> Tour Guide</span>
+                        </div>
+                        <div class="pkg-booking-row">
+                            <div class="pkg-rating">
+                                <i class="fa-solid fa-star"></i> 4.8 <span>(120 reviews)</span>
+                            </div>
+                            <button class="btn btn-primary open-modal-btn" data-tour="Bali Paradise Retreat" id="book-btn-bali">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Europe Tour Package -->
+                <div class="pkg-card" data-category="family">
+                    <div class="pkg-img">
+                        <img src="images/paris.jpg" alt="European Wonders Tour">
+                        <span class="pkg-tag">Family Tour</span>
+                        <div class="pkg-price-badge">$1,499</div>
+                    </div>
+                    <div class="pkg-content">
+                        <div class="pkg-meta">
+                            <span><i class="fa-regular fa-clock"></i> 8 Days / 7 Nights</span>
+                            <span><i class="fa-regular fa-user"></i> Max Guests: 4</span>
+                        </div>
+                        <h3 class="pkg-title">European Classic Wonders</h3>
+                        <p class="pkg-description">Explore the historic neighborhoods of Paris and scenic countryside of Switzerland. Tailored sightseeing guides for families.</p>
+                        <div class="pkg-features">
+                            <span><i class="fa-solid fa-check"></i> Hotels & Breakfast</span>
+                            <span><i class="fa-solid fa-check"></i> Museum Passes</span>
+                            <span><i class="fa-solid fa-check"></i> Train Travel</span>
+                        </div>
+                        <div class="pkg-booking-row">
+                            <div class="pkg-rating">
+                                <i class="fa-solid fa-star"></i> 4.9 <span>(98 reviews)</span>
+                            </div>
+                            <button class="btn btn-primary open-modal-btn" data-tour="European Classic Wonders" id="book-btn-europe">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swiss Alps Package -->
+                <div class="pkg-card" data-category="adventure">
+                    <div class="pkg-img">
+                        <img src="images/switzerland.jpg" alt="Swiss Alpine Skiing">
+                        <span class="pkg-tag">Adventure</span>
+                        <div class="pkg-price-badge">$1,899</div>
+                    </div>
+                    <div class="pkg-content">
+                        <div class="pkg-meta">
+                            <span><i class="fa-regular fa-clock"></i> 6 Days / 5 Nights</span>
+                            <span><i class="fa-regular fa-user"></i> Max Guests: 5</span>
+                        </div>
+                        <h3 class="pkg-title">Swiss Alpine Adventure</h3>
+                        <p class="pkg-description">Embark on guided skiing down majestic peaks, glacial hikes, high-altitude zip lines, and mountain valley paragliding.</p>
+                        <div class="pkg-features">
+                            <span><i class="fa-solid fa-check"></i> Ski Passes & Gear</span>
+                            <span><i class="fa-solid fa-check"></i> Cabin Lodging</span>
+                            <span><i class="fa-solid fa-check"></i> Safety Guide</span>
+                        </div>
+                        <div class="pkg-booking-row">
+                            <div class="pkg-rating">
+                                <i class="fa-solid fa-star"></i> 4.9 <span>(84 reviews)</span>
+                            </div>
+                            <button class="btn btn-primary open-modal-btn" data-tour="Swiss Alpine Adventure" id="book-btn-swiss">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 4rem;">
+                <a href="packages.html" class="btn btn-outline" id="view-all-packages-btn">View All Packages</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- WHY CHOOSE US --- -->
+    <section class="section-padding why-section reveal" id="why-choose-us">
+        <div class="container">
+            <div class="section-header">
+                <span class="sub-title">Our Strengths</span>
+                <h2 class="title">Why Choose WanderWorld</h2>
+            </div>
+            
+            <div class="why-grid">
+                <div class="why-card text-center">
+                    <div class="why-icon" style="margin: 0 auto 1.8rem auto;">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <h3>Expert Tour Guides</h3>
+                    <p>Our handpicked tour guides possess extensive local knowledge, ensuring highly educational, immersive, and safe excursions.</p>
+                </div>
+                
+                <div class="why-card text-center">
+                    <div class="why-icon" style="margin: 0 auto 1.8rem auto;">
+                        <i class="fa-solid fa-tags"></i>
+                    </div>
+                    <h3>Best Value Guarantee</h3>
+                    <p>We pride ourselves on offering luxury hospitality and highly customizable trips at standard prices, with zero hidden booking fees.</p>
+                </div>
+                
+                <div class="why-card text-center">
+                    <div class="why-icon" style="margin: 0 auto 1.8rem auto;">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3>100% Safe & Secured</h3>
+                    <p>Our priority is your peace of mind. We provide 24/7 customer assistance, global medical coverage, and secure booking processing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- TESTIMONIALS --- -->
+    <section class="section-padding reveal" id="customer-testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="sub-title">Traveler Stories</span>
+                <h2 class="title">What Our Clients Say</h2>
+            </div>
+            
+            <div class="testimonial-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"WanderWorld travels organized our honeymoon trip to Bali flawlessly. The overwater villa recommended by their advisors was absolutely heavenly. 10/10 service!"</p>
+                    <div class="testimonial-user">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&h=150&q=80" alt="Sarah Mitchell">
+                        <div class="user-info">
+                            <h4>Sarah Mitchell</h4>
+                            <span class="user-role">Bali Honeymoon Traveler</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Taking three children on an international tour is stressful, but the custom family itinerary in Switzerland made travel a breeze. The guides knew exactly how to keep the kids engaged."</p>
+                    <div class="testimonial-user">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80" alt="Marcus Thompson">
+                        <div class="user-info">
+                            <h4>Marcus Thompson</h4>
+                            <span class="user-role">Swiss Family Vacationer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The ski trip adventure package exceeded all expectations. Extreme attention to safety details, excellent choice of cabins, and the guides were fantastic skiers!"</p>
+                    <div class="testimonial-user">
+                        <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=150&h=150&q=80" alt="Alex Rivera">
+                        <div class="user-info">
+                            <h4>Alex Rivera</h4>
+                            <span class="user-role">Alpine Ski Adventurer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- CALL TO ACTION (CTA) / NEWSLETTER --- -->
+    <section class="cta-section" id="home-newsletter-cta">
+        <div class="cta-bg" style="background-image: url('images/hero_bg.jpg');"></div>
+        <div class="cta-overlay"></div>
+        <div class="container">
+            <div class="cta-content reveal">
+                <h2>Ready to Start Your Journey?</h2>
+                <p>Join our newsletter community today. Get up to 25% off your first booking, custom travel tip itineraries, and first-dibs on seasonal promotions.</p>
+                <form class="cta-newsletter" id="newsletter-form-home">
+                    <input type="email" placeholder="Your Email Address" required id="newsletter-email-input">
+                    <button type="submit" class="btn btn-primary" id="newsletter-btn-submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- FOOTER --- -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <i class="fa-solid fa-earth-americas"></i>
+                        <h1 style="color: var(--white);">WanderWorld</h1>
+                    </a>
+                    <p>We are a world-class travel agency helping thousands of eager wanderers find their next grand adventure. Explore the world stress-free.</p>
+                    <div class="footer-socials">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="packages.html">Tour Packages</a></li>
+                        <li><a href="blog.html">Travel Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="packages.html">Adventure Tours</a></li>
+                        <li><a href="packages.html">Romantic Honeymoons</a></li>
+                        <li><a href="packages.html">Family Vacations</a></li>
+                        <li><a href="packages.html">Budget Escapes</a></li>
+                        <li><a href="destinations.html">Cultural Destinations</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>Contact Info</h3>
+                    <div class="footer-contact-list">
+                        <div class="footer-contact-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>123 Wander Way, Travel Tower, New York, NY 10001</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>+1 (234) 567-8900</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>support@wanderworldtravels.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-copyright">
+                <p>&copy; 2026 WanderWorld Travels. All rights reserved.</p>
+                <div class="footer-copyright-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- --- BOOKING MODAL --- -->
+    <div class="modal" id="booking-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Book Your Tour</h3>
+                <button class="close-modal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="booking-form">
+                    <div class="form-group">
+                        <label for="modal-tour">Select Package</label>
+                        <select id="modal-tour" required>
+                            <option value="Bali Paradise Retreat">Bali Paradise Retreat - $799</option>
+                            <option value="European Classic Wonders">European Classic Wonders - $1,499</option>
+                            <option value="Swiss Alpine Adventure">Swiss Alpine Adventure - $1,899</option>
+                            <option value="Maldives Romance Escape">Maldives Romance Escape - $2,299</option>
+                            <option value="Dubai Skyline & Desert Tour">Dubai Skyline & Desert Tour - $1,299</option>
+                            <option value="Goa Beaches Sunset getaway">Goa Beaches Sunset Getaway - $499</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-name">Full Name</label>
+                        <input type="text" id="modal-name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-email">Email Address</label>
+                        <input type="email" id="modal-email" placeholder="johndoe@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-date">Preferred Travel Date</label>
+                        <input type="date" id="modal-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-guests">Number of Guests</label>
+                        <select id="modal-guests">
+                            <option value="1">1 Guest</option>
+                            <option value="2" selected>2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                            <option value="5+">5+ Guests</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;" id="modal-form-submit">Confirm Booking Request</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Toast Message Notification -->
+    <div class="success-popup" id="success-popup">
+        <i class="fa-solid fa-circle-check"></i>
+        <span>Booking request submitted successfully!</span>
+    </div>
+
+    <!-- Custom Client-Side Script -->
+    <script src="js/script.js"></script>
+</body>
+</html>
