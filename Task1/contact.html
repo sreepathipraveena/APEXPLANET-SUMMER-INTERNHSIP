@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | WanderWorld Travels</title>
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Get in touch with travel coordinators at WanderWorld Travels. Ask for vacation quotes, package customizing, or general help.">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- --- HEADER / NAVIGATION --- -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo" id="header-logo">
+                <i class="fa-solid fa-earth-americas"></i>
+                <h1>WanderWorld</h1>
+            </a>
+            <nav>
+                <div class="nav-links" id="menu-nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="destinations.html">Destinations</a>
+                    <a href="packages.html">Tour Packages</a>
+                    <a href="blog.html">Travel Blog</a>
+                    <a href="contact.html" class="active">Contact Us</a>
+                </div>
+            </nav>
+            <div class="hamburger" id="nav-hamburger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- --- INNER PAGE BANNER --- -->
+    <section class="inner-banner" id="contact-banner">
+        <div class="inner-banner-bg" style="background-image: url('images/hero_bg.jpg');"></div>
+        <div class="inner-banner-overlay"></div>
+        <div class="container">
+            <h1>Contact Us</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fa-solid fa-chevron-right" style="font-size: 0.8rem; display: flex; align-items: center;"></i>
+                <span>Contact Us</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- CONTACT SECTION MAIN --- -->
+    <section class="section-padding" style="padding-top: 2rem;" id="contact-details-section">
+        <div class="container">
+            
+            <div class="contact-layout reveal">
+                
+                <!-- Left Column - Company Info Panel -->
+                <div class="contact-info-panel">
+                    <div>
+                        <h3>Contact Information</h3>
+                        <p>Have questions about a destination or want a custom price quote? Reach out directly. Our travel coordinators are available 24/7.</p>
+                        
+                        <div class="contact-details-list">
+                            
+                            <!-- Address -->
+                            <div class="contact-detail-item">
+                                <div class="contact-detail-icon">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div class="contact-detail-text">
+                                    <h4>Office Headquarters</h4>
+                                    <p>123 Wander Way, Travel Tower, New York, NY 10001</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Phone -->
+                            <div class="contact-detail-item">
+                                <div class="contact-detail-icon">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div class="contact-detail-text">
+                                    <h4>Phone Contact</h4>
+                                    <p>Toll-Free: +1 (234) 567-8900<br>Direct Line: +1 (234) 567-8901</p>
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="contact-detail-item">
+                                <div class="contact-detail-icon">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div class="contact-detail-text">
+                                    <h4>Email Support</h4>
+                                    <p>bookings@wanderworldtravels.com<br>info@wanderworldtravels.com</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Social links -->
+                    <div class="contact-socials-wrapper">
+                        <h4>Connect with us</h4>
+                        <div class="contact-socials-links">
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Contact Form Panel -->
+                <div class="contact-form-panel">
+                    <h3>Send Us A Message</h3>
+                    <p>Provide your basic trip details below, and an expert travel advisor will contact you within 24 hours.</p>
+                    
+                    <form id="contact-form">
+                        <div class="contact-form-grid">
+                            
+                            <!-- Name -->
+                            <div class="form-group">
+                                <label for="contact-name">Full Name</label>
+                                <input type="text" id="contact-name" placeholder="John Doe">
+                                <div class="form-error-msg" id="error-name">Please enter a valid name (2-50 letters).</div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="form-group">
+                                <label for="contact-email">Email Address</label>
+                                <input type="email" id="contact-email" placeholder="johndoe@email.com">
+                                <div class="form-error-msg" id="error-email">Please enter a valid email address.</div>
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="form-group">
+                                <label for="contact-phone">Phone Number</label>
+                                <input type="tel" id="contact-phone" placeholder="+1 (234) 567-8900">
+                                <div class="form-error-msg" id="error-phone">Please enter a valid phone number.</div>
+                            </div>
+
+                            <!-- Subject -->
+                            <div class="form-group">
+                                <label for="contact-subject">Subject</label>
+                                <input type="text" id="contact-subject" placeholder="Custom Destination Inquiry">
+                                <div class="form-error-msg" id="error-subject">Subject cannot be empty.</div>
+                            </div>
+
+                            <!-- Message -->
+                            <div class="form-group form-group-full">
+                                <label for="contact-message">Your Message</label>
+                                <textarea id="contact-message" rows="6" placeholder="Tell us about your budget, group size, and destination goals..."></textarea>
+                                <div class="form-error-msg" id="error-message">Message cannot be empty.</div>
+                            </div>
+
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="margin-top: 1.5rem;" id="contact-submit-btn">Send Message</button>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- --- MAP SECTION --- -->
+    <section class="section-padding reveal" style="padding-top: 0;" id="contact-map-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="sub-title">Office Location</span>
+                <h2 class="title">Visit Our Headquarters</h2>
+            </div>
+            
+            <div class="map-section">
+                <!-- Open Street Maps Embed -->
+                <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-74.015%2C40.705%2C-73.995%2C40.725&amp;layer=mapnik&amp;marker=40.7128%2C-74.0060" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- FOOTER --- -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <i class="fa-solid fa-earth-americas"></i>
+                        <h1 style="color: var(--white);">WanderWorld</h1>
+                    </a>
+                    <p>We are a world-class travel agency helping thousands of eager wanderers find their next grand adventure. Explore the world stress-free.</p>
+                    <div class="footer-socials">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="packages.html">Tour Packages</a></li>
+                        <li><a href="blog.html">Travel Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="packages.html">Adventure Tours</a></li>
+                        <li><a href="packages.html">Romantic Honeymoons</a></li>
+                        <li><a href="packages.html">Family Vacations</a></li>
+                        <li><a href="packages.html">Budget Escapes</a></li>
+                        <li><a href="destinations.html">Cultural Destinations</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>Contact Info</h3>
+                    <div class="footer-contact-list">
+                        <div class="footer-contact-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>123 Wander Way, Travel Tower, New York, NY 10001</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>+1 (234) 567-8900</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>support@wanderworldtravels.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-copyright">
+                <p>&copy; 2026 WanderWorld Travels. All rights reserved.</p>
+                <div class="footer-copyright-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Toast Message Notification -->
+    <div class="success-popup" id="success-popup">
+        <i class="fa-solid fa-circle-check"></i>
+        <span>Message sent successfully!</span>
+    </div>
+
+    <!-- Custom Client-Side Script -->
+    <script src="js/script.js"></script>
+</body>
+</html>
