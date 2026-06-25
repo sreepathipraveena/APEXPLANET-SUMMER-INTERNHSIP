@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Blog | WanderWorld Travels</title>
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Discover travel tips, destination guides, packing advice, and street market reviews on the WanderWorld Chronicles travel blog.">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- --- HEADER / NAVIGATION --- -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo" id="header-logo">
+                <i class="fa-solid fa-earth-americas"></i>
+                <h1>WanderWorld</h1>
+            </a>
+            <nav>
+                <div class="nav-links" id="menu-nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="destinations.html">Destinations</a>
+                    <a href="packages.html">Tour Packages</a>
+                    <a href="blog.html" class="active">Travel Blog</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+            </nav>
+            <div class="hamburger" id="nav-hamburger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- --- INNER PAGE BANNER --- -->
+    <section class="inner-banner" id="blog-banner">
+        <div class="inner-banner-bg" style="background-image: url('images/about_banner.jpg');"></div>
+        <div class="inner-banner-overlay"></div>
+        <div class="container">
+            <h1>Travel Blog</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fa-solid fa-chevron-right" style="font-size: 0.8rem; display: flex; align-items: center;"></i>
+                <span>Blog</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- BLOG SECTION --- -->
+    <section class="section-padding" style="padding-top: 2rem;" id="blog-main-section">
+        <div class="container">
+            
+            <div class="blog-layout">
+                
+                <!-- Main Grid - Left -->
+                <div class="blog-grid-main reveal">
+                    
+                    <!-- Post 1 -->
+                    <article class="blog-card">
+                        <div class="blog-img">
+                            <img src="images/blog_1.jpg" alt="Travel camera and map gear">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta-info">
+                                <span><i class="fa-solid fa-calendar-days"></i> June 15, 2026</span>
+                                <span><i class="fa-solid fa-user"></i> Jessica Parker</span>
+                            </div>
+                            <h3>10 Essential Packing Tips for Solo Adventurers</h3>
+                            <p>Packing for a solo trip can be overwhelming. Learn how to maximize your backpack space, choose versatile clothing layers, and pack essential safety equipment without adding weight.</p>
+                            <a href="#" class="blog-readmore">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Post 2 -->
+                    <article class="blog-card">
+                        <div class="blog-img">
+                            <img src="images/blog_2.jpg" alt="Vibrant Asian food market scene">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta-info">
+                                <span><i class="fa-solid fa-calendar-days"></i> May 28, 2026</span>
+                                <span><i class="fa-solid fa-user"></i> Alex Rivera</span>
+                            </div>
+                            <h3>Exploring the Vibrant Street Markets of Asia</h3>
+                            <p>Street food markets are the culinary heartbeat of Asia. Join us on an immersive journey through Bangkok and Hanoi night markets, detailing hygiene tips and must-try delicacies.</p>
+                            <a href="#" class="blog-readmore">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Post 3 -->
+                    <article class="blog-card">
+                        <div class="blog-img">
+                            <img src="images/blog_3.jpg" alt="Mountain hiker path guide">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta-info">
+                                <span><i class="fa-solid fa-calendar-days"></i> April 10, 2026</span>
+                                <span><i class="fa-solid fa-user"></i> Carlos Santana</span>
+                            </div>
+                            <h3>A Hiker's Guide to Alpine Peaks Safety</h3>
+                            <p>Climbing alpine summits requires proper physical training and route understanding. Our guide outlines weather patterns, high-altitude gear check-lists, and path navigation tips.</p>
+                            <a href="#" class="blog-readmore">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- Sidebar - Right -->
+                <aside class="sidebar reveal">
+                    
+                    <!-- Search Widget -->
+                    <div class="sidebar-widget">
+                        <h3>Search Blog</h3>
+                        <div class="search-input-wrapper" style="margin-top: 1rem;">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" placeholder="Search articles..." style="background-color: var(--light); padding: 0.8rem 1rem 0.8rem 2.8rem; border-radius: var(--border-radius); border: 1px solid var(--light-accent); width: 100%;">
+                        </div>
+                    </div>
+
+                    <!-- Categories Widget -->
+                    <div class="sidebar-widget">
+                        <h3>Categories</h3>
+                        <ul class="category-list" style="margin-top: 1rem;">
+                            <li><a href="#">Adventure Travel <span>12</span></a></li>
+                            <li><a href="#">Luxury Accommodations <span>8</span></a></li>
+                            <li><a href="#">Solo Packing Guides <span>15</span></a></li>
+                            <li><a href="#">Budget Backpacking <span>9</span></a></li>
+                            <li><a href="#">Local Culinary Tours <span>6</span></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Travel Tips Widget (Requested) -->
+                    <div class="sidebar-widget">
+                        <h3>Quick Travel Tips</h3>
+                        <ul class="tips-list" style="margin-top: 1.2rem; list-style: none; padding: 0;">
+                            <li><strong>Copy Passports:</strong> Keep digital backups of your passport, visa, and insurance cards in cloud storage.</li>
+                            <li><strong>Local Phrases:</strong> Spend 10 minutes learning basic phrases (please, thank you, hello) of your host country.</li>
+                            <li><strong>Compact Power Bank:</strong> Always carry a lightweight external battery in your day-pack.</li>
+                            <li><strong>Cash is King:</strong> Keep minor local currency cash bills for rural markets and transport tipping.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Newsletter Sidebar Widget -->
+                    <div class="sidebar-widget" style="background-color: var(--primary); color: var(--white);">
+                        <h3 style="color: var(--white);">Newsletter</h3>
+                        <p style="color: rgba(255, 255, 255, 0.85); font-size: 0.9rem; margin-top: 1rem; margin-bottom: 1.5rem;">Receive monthly travel inspirations, packing templates, and secret tour vouchers.</p>
+                        <form id="newsletter-form-blog" style="display: flex; flex-direction: column; gap: 0.8rem;">
+                            <input type="email" placeholder="Your Email Address" required style="padding: 0.8rem; border-radius: var(--border-radius); border: 0; width: 100%; color: var(--dark);">
+                            <button type="submit" class="btn btn-secondary" style="width: 100%; text-align: center; padding: 0.7rem;" onclick="event.preventDefault(); alert('Subscribed to travel blog newsletter!'); this.form.reset();">Subscribe</button>
+                        </form>
+                    </div>
+
+                </aside>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- --- FOOTER --- -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <i class="fa-solid fa-earth-americas"></i>
+                        <h1 style="color: var(--white);">WanderWorld</h1>
+                    </a>
+                    <p>We are a world-class travel agency helping thousands of eager wanderers find their next grand adventure. Explore the world stress-free.</p>
+                    <div class="footer-socials">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="packages.html">Tour Packages</a></li>
+                        <li><a href="blog.html">Travel Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="packages.html">Adventure Tours</a></li>
+                        <li><a href="packages.html">Romantic Honeymoons</a></li>
+                        <li><a href="packages.html">Family Vacations</a></li>
+                        <li><a href="packages.html">Budget Escapes</a></li>
+                        <li><a href="destinations.html">Cultural Destinations</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>Contact Info</h3>
+                    <div class="footer-contact-list">
+                        <div class="footer-contact-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>123 Wander Way, Travel Tower, New York, NY 10001</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>+1 (234) 567-8900</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>support@wanderworldtravels.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-copyright">
+                <p>&copy; 2026 WanderWorld Travels. All rights reserved.</p>
+                <div class="footer-copyright-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Client-Side Script -->
+    <script src="js/script.js"></script>
+</body>
+</html>
