@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations | WanderWorld Travels</title>
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Browse our popular global travel destinations including Bali, Paris, Switzerland, Maldives, Dubai, and Goa. Search and filter your dream spots.">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- --- HEADER / NAVIGATION --- -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo" id="header-logo">
+                <i class="fa-solid fa-earth-americas"></i>
+                <h1>WanderWorld</h1>
+            </a>
+            <nav>
+                <div class="nav-links" id="menu-nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="destinations.html" class="active">Destinations</a>
+                    <a href="packages.html">Tour Packages</a>
+                    <a href="blog.html">Travel Blog</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+            </nav>
+            <div class="hamburger" id="nav-hamburger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- --- INNER PAGE BANNER --- -->
+    <section class="inner-banner" id="destinations-banner">
+        <div class="inner-banner-bg" style="background-image: url('images/hero_bg.jpg');"></div>
+        <div class="inner-banner-overlay"></div>
+        <div class="container">
+            <h1>Explore Destinations</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fa-solid fa-chevron-right" style="font-size: 0.8rem; display: flex; align-items: center;"></i>
+                <span>Destinations</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- SEARCH & FILTER SECTION --- -->
+    <section class="section-padding" style="padding-top: 2rem;" id="destinations-filter-section">
+        <div class="container">
+            
+            <div class="filter-section reveal">
+                <div class="filter-grid">
+                    <div class="search-input-wrapper">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="dest-search" placeholder="Search by destination name or keywords...">
+                    </div>
+                    
+                    <div class="filter-select">
+                        <select id="dest-region">
+                            <option value="">Filter by Category</option>
+                            <option value="asia">Asia</option>
+                            <option value="europe">Europe</option>
+                            <option value="beach">Tropical Beach</option>
+                            <option value="adventure">Desert / Adventure</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn btn-primary" style="padding: 0.9rem; font-size: 0.9rem;" onclick="document.getElementById('dest-search').value = ''; document.getElementById('dest-region').value = ''; document.getElementById('dest-search').dispatchEvent(new Event('input'));">
+                        Reset Filters
+                    </button>
+                </div>
+            </div>
+
+            <!-- Destinations Grid -->
+            <div class="destinations-grid reveal">
+                
+                <!-- Bali -->
+                <div class="dest-card" data-region="asia">
+                    <div class="dest-img-container">
+                        <img src="images/bali.jpg" alt="Bali Temple">
+                        <div class="dest-rating">
+                            <i class="fa-solid fa-star"></i> 4.8
+                        </div>
+                    </div>
+                    <div class="dest-card-content">
+                        <div class="dest-meta">
+                            <span class="tag tag-primary">Asia</span>
+                        </div>
+                        <h3>Bali, Indonesia</h3>
+                        <p>Relax on serene beaches, explore active volcano paths, and witness mesmerizing sunset ceremonies at clifftop temples.</p>
+                        <div class="dest-card-footer">
+                            <div class="dest-price">Starting at <span>$799</span></div>
+                            <button class="btn btn-secondary open-modal-btn" data-tour="Bali Paradise Retreat" style="padding: 0.5rem 1.2rem; font-size: 0.8rem;">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paris -->
+                <div class="dest-card" data-region="europe">
+                    <div class="dest-img-container">
+                        <img src="images/paris.jpg" alt="Eiffel Tower Paris">
+                        <div class="dest-rating">
+                            <i class="fa-solid fa-star"></i> 4.9
+                        </div>
+                    </div>
+                    <div class="dest-card-content">
+                        <div class="dest-meta">
+                            <span class="tag tag-primary">Europe</span>
+                        </div>
+                        <h3>Paris, France</h3>
+                        <p>Indulge in artisanal cafes, visit historic landmarks like the Louvre, and walk along the charming Seine riverbanks.</p>
+                        <div class="dest-card-footer">
+                            <div class="dest-price">Starting at <span>$1,499</span></div>
+                            <button class="btn btn-secondary open-modal-btn" data-tour="European Classic Wonders" style="padding: 0.5rem 1.2rem; font-size: 0.8rem;">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Switzerland -->
+                <div class="dest-card" data-region="europe">
+                    <div class="dest-img-container">
+                        <img src="images/switzerland.jpg" alt="Swiss Alps">
+                        <div class="dest-rating">
+                            <i class="fa-solid fa-star"></i> 4.9
+                        </div>
+                    </div>
+                    <div class="dest-card-content">
+                        <div class="dest-meta">
+                            <span class="tag tag-primary">Europe</span>
+                        </div>
+                        <h3>Swiss Alps, Switzerland</h3>
+                        <p>Hike alpine valleys, experience ski resorts in Zermatt, and ride high-altitude scenic railways with panoramic windows.</p>
+                        <div class="dest-card-footer">
+                            <div class="dest-price">Starting at <span>$1,899</span></div>
+                            <button class="btn btn-secondary open-modal-btn" data-tour="Swiss Alpine Adventure" style="padding: 0.5rem 1.2rem; font-size: 0.8rem;">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Maldives -->
+                <div class="dest-card" data-region="beach">
+                    <div class="dest-img-container">
+                        <img src="images/maldives.jpg" alt="Maldives lagoon">
+                        <div class="dest-rating">
+                            <i class="fa-solid fa-star"></i> 4.9
+                        </div>
+                    </div>
+                    <div class="dest-card-content">
+                        <div class="dest-meta">
+                            <span class="tag tag-primary">Tropical Beach</span>
+                        </div>
+                        <h3>Maldives</h3>
+                        <p>Enjoy private island overwater cabins, swim alongside stingrays in shallow waters, and watch neon bioluminescent tides.</p>
+                        <div class="dest-card-footer">
+                            <div class="dest-price">Starting at <span>$2,299</span></div>
+                            <button class="btn btn-secondary open-modal-btn" data-tour="Maldives Romance Escape" style="padding: 0.5rem 1.2rem; font-size: 0.8rem;">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dubai -->
+                <div class="dest-card" data-region="adventure">
+                    <div class="dest-img-container">
+                        <img src="images/dubai.jpg" alt="Burj Khalifa Dubai">
+                        <div class="dest-rating">
+                            <i class="fa-solid fa-star"></i> 4.7
+                        </div>
+                    </div>
+                    <div class="dest-card-content">
+                        <div class="dest-meta">
+                            <span class="tag tag-primary">Desert / Adventure</span>
+                        </div>
+                        <h3>Dubai, UAE</h3>
+                        <p>Witness soaring heights of Burj Khalifa, slide down indoor ski slopes, and experience thrilling desert dune bashing.</p>
+                        <div class="dest-card-footer">
+                            <div class="dest-price">Starting at <span>$1,299</span></div>
+                            <button class="btn btn-secondary open-modal-btn" data-tour="Dubai Skyline & Desert Tour" style="padding: 0.5rem 1.2rem; font-size: 0.8rem;">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Goa -->
+                <div class="dest-card" data-region="asia">
+                    <div class="dest-img-container">
+                        <img src="images/goa.jpg" alt="Goa Sandy Beach">
+                        <div class="dest-rating">
+                            <i class="fa-solid fa-star"></i> 4.6
+                        </div>
+                    </div>
+                    <div class="dest-card-content">
+                        <div class="dest-meta">
+                            <span class="tag tag-primary">Asia</span>
+                        </div>
+                        <h3>Goa, India</h3>
+                        <p>Soak in warm sun on golden sand dunes, sample rich coconut curries, and tour centuries-old Portuguese churches.</p>
+                        <div class="dest-card-footer">
+                            <div class="dest-price">Starting at <span>$499</span></div>
+                            <button class="btn btn-secondary open-modal-btn" data-tour="Goa Beaches Sunset getaway" style="padding: 0.5rem 1.2rem; font-size: 0.8rem;">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- No Results message placeholder -->
+            <div class="no-results" id="no-results-panel">
+                <i class="fa-solid fa-plane-slash"></i>
+                <h3>No Destinations Found</h3>
+                <p>We couldn't find any location matching your filters. Try checking your spelling or selecting a different category.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- --- FOOTER --- -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <i class="fa-solid fa-earth-americas"></i>
+                        <h1 style="color: var(--white);">WanderWorld</h1>
+                    </a>
+                    <p>We are a world-class travel agency helping thousands of eager wanderers find their next grand adventure. Explore the world stress-free.</p>
+                    <div class="footer-socials">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="packages.html">Tour Packages</a></li>
+                        <li><a href="blog.html">Travel Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="packages.html">Adventure Tours</a></li>
+                        <li><a href="packages.html">Romantic Honeymoons</a></li>
+                        <li><a href="packages.html">Family Vacations</a></li>
+                        <li><a href="packages.html">Budget Escapes</a></li>
+                        <li><a href="destinations.html">Cultural Destinations</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>Contact Info</h3>
+                    <div class="footer-contact-list">
+                        <div class="footer-contact-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>123 Wander Way, Travel Tower, New York, NY 10001</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>+1 (234) 567-8900</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>support@wanderworldtravels.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-copyright">
+                <p>&copy; 2026 WanderWorld Travels. All rights reserved.</p>
+                <div class="footer-copyright-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- --- BOOKING MODAL --- -->
+    <div class="modal" id="booking-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Book Your Tour</h3>
+                <button class="close-modal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="booking-form">
+                    <div class="form-group">
+                        <label for="modal-tour">Select Package</label>
+                        <select id="modal-tour" required>
+                            <option value="Bali Paradise Retreat">Bali Paradise Retreat - $799</option>
+                            <option value="European Classic Wonders">European Classic Wonders - $1,499</option>
+                            <option value="Swiss Alpine Adventure">Swiss Alpine Adventure - $1,899</option>
+                            <option value="Maldives Romance Escape">Maldives Romance Escape - $2,299</option>
+                            <option value="Dubai Skyline & Desert Tour">Dubai Skyline & Desert Tour - $1,299</option>
+                            <option value="Goa Beaches Sunset getaway">Goa Beaches Sunset Getaway - $499</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-name">Full Name</label>
+                        <input type="text" id="modal-name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-email">Email Address</label>
+                        <input type="email" id="modal-email" placeholder="johndoe@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-date">Preferred Travel Date</label>
+                        <input type="date" id="modal-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-guests">Number of Guests</label>
+                        <select id="modal-guests">
+                            <option value="1">1 Guest</option>
+                            <option value="2" selected>2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                            <option value="5+">5+ Guests</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;" id="modal-form-submit">Confirm Booking Request</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Toast Message Notification -->
+    <div class="success-popup" id="success-popup">
+        <i class="fa-solid fa-circle-check"></i>
+        <span>Booking request submitted successfully!</span>
+    </div>
+
+    <!-- Custom Client-Side Script -->
+    <script src="js/script.js"></script>
+</body>
+</html>
