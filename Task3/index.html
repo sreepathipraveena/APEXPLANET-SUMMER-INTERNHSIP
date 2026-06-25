@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusHub | API Integration Dashboard</title>
+    <!-- Google Fonts: Outfit & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- App Wrapper -->
+    <div class="app-container">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-cubes-stacked"></i>
+                    </div>
+                    <span class="logo-text">NexusHub</span>
+                </div>
+                <button class="close-sidebar-btn" id="closeSidebarBtn" aria-label="Close Navigation">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <ul>
+                    <li>
+                        <button class="menu-item active" data-tab="dashboard">
+                            <i class="fa-solid fa-chart-pie"></i>
+                            <span>Overview</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="menu-item" data-tab="weather">
+                            <i class="fa-solid fa-cloud-sun"></i>
+                            <span>Weather App</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="menu-item" data-tab="movies">
+                            <i class="fa-solid fa-film"></i>
+                            <span>Movie Search</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="menu-item" data-tab="quotes">
+                            <i class="fa-solid fa-quote-left"></i>
+                            <span>Quote Generator</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="menu-item" data-tab="settings">
+                            <i class="fa-solid fa-sliders"></i>
+                            <span>API Settings</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="demo-badge-container">
+                    <span class="status-indicator live" id="apiStatusBadge"></span>
+                    <span class="status-text" id="apiStatusText">Demo Mode</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="main-content">
+            <!-- Header Bar -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="hamburger-menu" id="hamburgerMenu" aria-label="Open Navigation">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <h1 class="header-title" id="pageTitle">Dashboard Overview</h1>
+                </div>
+                
+                <div class="header-right">
+                    <!-- Quick Toggle Theme -->
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+                        <i class="fa-solid fa-moon dark-icon"></i>
+                        <i class="fa-solid fa-sun light-icon"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Scrollable Content View -->
+            <div class="content-viewport">
+
+                <!-- 1. DASHBOARD OVERVIEW TAB -->
+                <section class="tab-pane active" id="tab-dashboard">
+                    <!-- Banner -->
+                    <div class="dashboard-banner">
+                        <div class="banner-overlay"></div>
+                        <div class="banner-content">
+                            <h2>Welcome to NexusHub</h2>
+                            <p>A unified suite of micro-applications connected to live APIs. Toggle configurations, manage histories, and customize your experience.</p>
+                            <div class="banner-actions">
+                                <button class="btn btn-primary" onclick="switchTab('settings')">
+                                    <i class="fa-solid fa-key"></i> Setup API Keys
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mini App Overview Grid -->
+                    <div class="dashboard-grid">
+                        <!-- Weather Card Quick View -->
+                        <div class="dashboard-card glass-panel card-hover" onclick="switchTab('weather')">
+                            <div class="card-icon-wrapper weather-color">
+                                <i class="fa-solid fa-cloud-sun"></i>
+                            </div>
+                            <h3>Weather Forecast</h3>
+                            <p>Get real-time global weather conditions, wind speed, humidity, and location tracking.</p>
+                            <div class="card-footer">
+                                <span>Go to app</span>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </div>
+                        </div>
+
+                        <!-- Movies Card Quick View -->
+                        <div class="dashboard-card glass-panel card-hover" onclick="switchTab('movies')">
+                            <div class="card-icon-wrapper movies-color">
+                                <i class="fa-solid fa-film"></i>
+                            </div>
+                            <h3>Movie Database</h3>
+                            <p>Explore films, TV shows, browse extensive details, and curate your personalized favorites library.</p>
+                            <div class="card-footer">
+                                <span>Go to app</span>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </div>
+                        </div>
+
+                        <!-- Quotes Card Quick View -->
+                        <div class="dashboard-card glass-panel card-hover" onclick="switchTab('quotes')">
+                            <div class="card-icon-wrapper quotes-color">
+                                <i class="fa-solid fa-quote-left"></i>
+                            </div>
+                            <h3>Random Quotes</h3>
+                            <p>Generate inspiring statements, copy metadata dynamically, and share instantly to social platforms.</p>
+                            <div class="card-footer">
+                                <span>Go to app</span>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. WEATHER APP TAB -->
+                <section class="tab-pane" id="tab-weather">
+                    <div class="app-layout-grid">
+                        
+                        <!-- Left Panel: Search & History -->
+                        <div class="panel-left">
+                            <div class="glass-panel search-section">
+                                <h3>Search Location</h3>
+                                <form id="weatherForm" class="search-box">
+                                    <input type="text" id="weatherInput" placeholder="Enter city name..." autocomplete="off" required>
+                                    <button type="submit" class="btn btn-icon-action" aria-label="Search Weather">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                </form>
+                            </div>
+
+                            <div class="glass-panel history-section">
+                                <div class="section-header">
+                                    <h3>Recent Searches</h3>
+                                    <button class="btn btn-text btn-small" id="clearWeatherHistory">Clear</button>
+                                </div>
+                                <ul class="history-list" id="weatherHistoryList">
+                                    <!-- Populated by JS -->
+                                    <li class="history-empty">No recent searches</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Right Panel: Weather Details Display -->
+                        <div class="panel-right">
+                            <div class="glass-panel main-weather-display" id="weatherDisplayContainer">
+                                
+                                <!-- Initial/Placeholder State -->
+                                <div class="display-placeholder" id="weatherPlaceholder">
+                                    <i class="fa-solid fa-cloud-sun-rain placeholder-icon"></i>
+                                    <h4>No Weather Data Selected</h4>
+                                    <p>Search for a city or pick a recent location to see the forecast.</p>
+                                </div>
+
+                                <!-- Loading Skeleton -->
+                                <div class="weather-skeleton hidden" id="weatherSkeleton">
+                                    <div class="skeleton-line skeleton-title"></div>
+                                    <div class="skeleton-circle"></div>
+                                    <div class="skeleton-line skeleton-medium"></div>
+                                    <div class="skeleton-grid">
+                                        <div class="skeleton-line"></div>
+                                        <div class="skeleton-line"></div>
+                                        <div class="skeleton-line"></div>
+                                        <div class="skeleton-line"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Actual Weather Content -->
+                                <div class="weather-content hidden" id="weatherContent">
+                                    <div class="weather-main-header">
+                                        <div class="location-details">
+                                            <h2 id="weatherCityName">London</h2>
+                                            <span id="weatherDate" class="weather-date">Thursday, 25 June</span>
+                                        </div>
+                                        <!-- Unit Switcher Toggle -->
+                                        <div class="unit-toggle-wrapper">
+                                            <button class="unit-btn active" id="unitCelsius" aria-label="Toggle Celsius">°C</button>
+                                            <button class="unit-btn" id="unitFahrenheit" aria-label="Toggle Fahrenheit">°F</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="weather-hero">
+                                        <div class="weather-hero-visual">
+                                            <img id="weatherIcon" src="https://openweathermap.org/img/wn/10d@4x.png" alt="Weather Condition">
+                                            <span id="weatherDescription" class="weather-desc">Scattered Clouds</span>
+                                        </div>
+                                        <div class="weather-hero-temp">
+                                            <span id="weatherTemp">24</span><span class="temp-symbol">°</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="weather-details-grid">
+                                        <div class="weather-detail-item">
+                                            <div class="detail-icon"><i class="fa-solid fa-droplet"></i></div>
+                                            <div class="detail-info">
+                                                <span class="detail-label">Humidity</span>
+                                                <span class="detail-value" id="weatherHumidity">64%</span>
+                                            </div>
+                                        </div>
+                                        <div class="weather-detail-item">
+                                            <div class="detail-icon"><i class="fa-solid fa-wind"></i></div>
+                                            <div class="detail-info">
+                                                <span class="detail-label">Wind Speed</span>
+                                                <span class="detail-value" id="weatherWind">4.5 m/s</span>
+                                            </div>
+                                        </div>
+                                        <div class="weather-detail-item">
+                                            <div class="detail-icon"><i class="fa-solid fa-temperature-half"></i></div>
+                                            <div class="detail-info">
+                                                <span class="detail-label">Feels Like</span>
+                                                <span class="detail-value" id="weatherFeelsLike">23°C</span>
+                                            </div>
+                                        </div>
+                                        <div class="weather-detail-item">
+                                            <div class="detail-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                                            <div class="detail-info">
+                                                <span class="detail-label">Pressure</span>
+                                                <span class="detail-value" id="weatherPressure">1012 hPa</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. MOVIE SEARCH APP TAB -->
+                <section class="tab-pane" id="tab-movies">
+                    <!-- Movie Search Layout Control -->
+                    <div class="movie-controls-container">
+                        <div class="glass-panel search-and-filter">
+                            <form id="movieForm" class="movie-search-form">
+                                <div class="movie-search-input-group">
+                                    <i class="fa-solid fa-magnifying-glass search-input-icon"></i>
+                                    <input type="text" id="movieInput" placeholder="Search movies, series..." required autocomplete="off">
+                                </div>
+                                <div class="movie-filter-group">
+                                    <select id="movieTypeFilter" aria-label="Filter by type">
+                                        <option value="">All Types</option>
+                                        <option value="movie">Movies</option>
+                                        <option value="series">Series</option>
+                                        <option value="episode">Episodes</option>
+                                    </select>
+                                    <button type="submit" class="btn btn-primary">Search</button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <!-- Toggle Button to view Favorites -->
+                        <button class="btn btn-secondary favorites-toggle-btn" id="favToggleBtn">
+                            <i class="fa-solid fa-heart"></i> 
+                            <span>Show Favorites</span>
+                            <span class="favorites-count-badge" id="favBadge">0</span>
+                        </button>
+                    </div>
+
+                    <!-- Movies Display Sub-Panel: Search Results / Favorites Grid -->
+                    <div class="movies-viewport">
+                        <!-- Back to Search Results button (Only visible when viewing Favorites) -->
+                        <div class="back-to-results-wrapper hidden" id="backToResultsContainer">
+                            <button class="btn btn-text" id="backToSearchBtn">
+                                <i class="fa-solid fa-arrow-left"></i> Back to Search Results
+                            </button>
+                            <h2 class="section-title">My Favorites</h2>
+                        </div>
+
+                        <!-- Results Grid -->
+                        <div class="movies-grid" id="moviesGrid">
+                            <!-- JS Injectable Cards -->
+                        </div>
+
+                        <!-- Loading Indicator for Movies -->
+                        <div class="movies-loading-spinner hidden" id="moviesSpinner">
+                            <div class="spinner-core"></div>
+                            <p>Curating titles...</p>
+                        </div>
+
+                        <!-- Empty/Intro Placeholder State -->
+                        <div class="movie-placeholder-state" id="moviePlaceholder">
+                            <i class="fa-solid fa-ticket placeholder-icon"></i>
+                            <h3 id="moviePlaceholderTitle">Find Your Next Movie</h3>
+                            <p id="moviePlaceholderDesc">Search for titles using the input bar above, or check out your Favorites library.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. RANDOM QUOTE GENERATOR TAB -->
+                <section class="tab-pane" id="tab-quotes">
+                    <div class="quote-workspace">
+                        <div class="quote-card glass-panel" id="quoteContainer">
+                            <div class="quote-card-header">
+                                <i class="fa-solid fa-quote-left quote-decoration"></i>
+                                <span class="quote-category-tag" id="quoteTag">Inspiration</span>
+                            </div>
+                            
+                            <div class="quote-body">
+                                <!-- Loading State -->
+                                <div class="quote-skeleton hidden" id="quoteSkeleton">
+                                    <div class="skeleton-line skeleton-title"></div>
+                                    <div class="skeleton-line skeleton-medium"></div>
+                                    <div class="skeleton-line skeleton-small"></div>
+                                </div>
+                                <blockquote class="quote-text-container" id="quoteTextContainer">
+                                    <p id="quoteText">"The best way to predict the future is to create it."</p>
+                                </blockquote>
+                                <cite class="quote-author" id="quoteAuthor">- Peter Drucker</cite>
+                            </div>
+
+                            <div class="quote-actions">
+                                <div class="social-actions">
+                                    <button class="btn btn-icon btn-secondary" id="copyQuoteBtn" title="Copy Quote" aria-label="Copy Quote to Clipboard">
+                                        <i class="fa-regular fa-copy"></i>
+                                    </button>
+                                    <button class="btn btn-icon btn-secondary" id="tweetQuoteBtn" title="Tweet Quote" aria-label="Share Quote on Twitter">
+                                        <i class="fa-brands fa-x-twitter"></i>
+                                    </button>
+                                </div>
+                                <button class="btn btn-primary" id="newQuoteBtn">
+                                    <i class="fa-solid fa-arrows-rotate"></i> New Quote
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5. API SETTINGS TAB -->
+                <section class="tab-pane" id="tab-settings">
+                    <div class="settings-workspace">
+                        <div class="settings-card glass-panel">
+                            <div class="settings-card-header">
+                                <i class="fa-solid fa-gears settings-header-icon"></i>
+                                <h2>API Configurations</h2>
+                                <p>Provide custom API credentials to enable live server sync. If empty, NexusHub runs in local <strong>Demo Mode</strong>.</p>
+                            </div>
+
+                            <form id="settingsForm" class="settings-form">
+                                <!-- Weather Key -->
+                                <div class="form-group">
+                                    <div class="form-label-row">
+                                        <label for="weatherApiKey">OpenWeatherMap API Key</label>
+                                        <a href="https://openweathermap.org/api" target="_blank" rel="noopener noreferrer" class="help-link">
+                                            Get Key <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                        </a>
+                                    </div>
+                                    <div class="input-wrapper">
+                                        <i class="fa-solid fa-cloud-sun input-icon"></i>
+                                        <input type="password" id="weatherApiKey" placeholder="Enter OpenWeatherMap API Key...">
+                                        <button type="button" class="btn-toggle-visibility" onclick="togglePasswordVisibility('weatherApiKey')" aria-label="Toggle Visibility">
+                                            <i class="fa-solid fa-eye eye-icon"></i>
+                                        </button>
+                                    </div>
+                                    <span class="field-desc">Required for live weather forecasts and automatic location retrieval.</span>
+                                </div>
+
+                                <!-- Movie Key -->
+                                <div class="form-group">
+                                    <div class="form-label-row">
+                                        <label for="movieApiKey">OMDb API Key</label>
+                                        <a href="http://www.omdbapi.com/apikey.aspx" target="_blank" rel="noopener noreferrer" class="help-link">
+                                            Get Key <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                        </a>
+                                    </div>
+                                    <div class="input-wrapper">
+                                        <i class="fa-solid fa-film input-icon"></i>
+                                        <input type="password" id="movieApiKey" placeholder="Enter OMDb API Key...">
+                                        <button type="button" class="btn-toggle-visibility" onclick="togglePasswordVisibility('movieApiKey')" aria-label="Toggle Visibility">
+                                            <i class="fa-solid fa-eye eye-icon"></i>
+                                        </button>
+                                    </div>
+                                    <span class="field-desc">Required to query films, series, ratings, and plot details from the OMDb database.</span>
+                                </div>
+
+                                <div class="settings-actions">
+                                    <button type="button" class="btn btn-secondary" id="resetSettingsBtn">Clear Keys</button>
+                                    <button type="submit" class="btn btn-primary">Save Settings</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                
+            </div>
+        </main>
+    </div>
+
+    <!-- GLOBAL MOVIE DETAILS MODAL -->
+    <div class="modal-overlay hidden" id="movieDetailModal">
+        <div class="modal-container glass-panel">
+            <button class="modal-close" id="modalCloseBtn" aria-label="Close Details">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="modal-body-wrapper" id="modalDetailsBody">
+                <!-- Populated dynamically via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION ROOT -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Script Injection -->
+    <script src="script.js"></script>
+</body>
+</html>
