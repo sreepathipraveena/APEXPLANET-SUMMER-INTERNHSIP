@@ -1,0 +1,1749 @@
+/* ==========================================================================
+   CSS DESIGN SYSTEM - FITNESS & HEALTH TRACKER
+   ========================================================================== */
+
+/* 1. GOOGLE FONTS & IMPORTS */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+/* 2. CUSTOM THEME VARIABLES */
+:root {
+  /* Light Theme Variables */
+  --bg-primary: #f1f5f9;
+  --bg-secondary: #ffffff;
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --card-border: rgba(226, 232, 240, 0.8);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  
+  /* Brand Accent Colors (Light) */
+  --accent-primary: #0d9488;       /* Teal */
+  --accent-secondary: #6366f1;     /* Indigo */
+  --accent-success: #16a34a;       /* Green */
+  --accent-warning: #ea580c;       /* Orange */
+  --accent-danger: #dc2626;        /* Red */
+  
+  --accent-primary-rgb: 13, 148, 136;
+  --accent-secondary-rgb: 99, 102, 241;
+  
+  /* Shared values */
+  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 20px -2px rgba(0, 0, 0, 0.08), 0 2px 8px -1px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-glow: 0 0 15px rgba(13, 148, 136, 0.2);
+  
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  --sidebar-width: 260px;
+}
+
+/* Dark Theme Variables */
+body.dark-theme {
+  --bg-primary: #090d16;
+  --bg-secondary: #111827;
+  --card-bg: rgba(17, 24, 39, 0.85);
+  --card-border: rgba(31, 41, 55, 0.8);
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
+  
+  /* Brand Accent Colors (Dark) */
+  --accent-primary: #2dd4bf;       /* Neon Teal */
+  --accent-secondary: #818cf8;     /* Bright Indigo */
+  --accent-success: #4ade80;       /* Bright Green */
+  --accent-warning: #fb923c;       /* Bright Orange */
+  --accent-danger: #f87171;        /* Bright Red */
+  
+  --accent-primary-rgb: 45, 212, 191;
+  --accent-secondary-rgb: 129, 140, 248;
+  
+  --shadow-md: 0 4px 25px -2px rgba(0, 0, 0, 0.3), 0 2px 10px -1px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 20px 30px -5px rgba(0, 0, 0, 0.4), 0 8px 15px -6px rgba(0, 0, 0, 0.3);
+  --shadow-glow: 0 0 20px rgba(45, 212, 191, 0.25);
+}
+
+/* 3. BASE RESET & INITIALIZATION */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  overflow-x: hidden;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+input, button, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* ==========================================================================
+   LAYOUT STRUCTURE (Sidebar & Main Panels)
+   ========================================================================== */
+
+/* App Wrapper */
+.app-container {
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Sidebar Styling (Desktop) */
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--bg-secondary);
+  border-right: 1px solid var(--card-border);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.5rem;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  transition: background-color var(--transition-normal), border-color var(--transition-normal);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+  padding-left: 0.5rem;
+}
+
+.logo-icon {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: var(--shadow-glow);
+}
+
+.logo-text {
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, var(--text-primary), var(--accent-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Navigation Links */
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style: none;
+  flex-grow: 1;
+}
+
+.nav-item {
+  width: 100%;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.nav-link svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform var(--transition-fast);
+}
+
+.nav-link:hover {
+  background-color: rgba(var(--accent-primary-rgb), 0.08);
+  color: var(--accent-primary);
+}
+
+.nav-link:hover svg {
+  transform: translateX(3px);
+}
+
+.nav-item.active .nav-link {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: #ffffff;
+  box-shadow: var(--shadow-glow);
+}
+
+.nav-item.active .nav-link svg {
+  stroke: #ffffff;
+}
+
+/* Sidebar Theme Toggle & User Info */
+.sidebar-footer {
+  margin-top: auto;
+  border-top: 1px solid var(--card-border);
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.theme-toggle-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bg-primary);
+  padding: 0.5rem 0.75rem;
+  border-radius: 30px;
+  position: relative;
+}
+
+.theme-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.theme-btn-wrapper {
+  display: flex;
+  background: var(--bg-secondary);
+  border-radius: 20px;
+  padding: 2px;
+  border: 1px solid var(--card-border);
+}
+
+.theme-toggle-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+}
+
+.theme-toggle-btn.active {
+  background-color: var(--accent-primary);
+  color: #ffffff;
+}
+
+.user-profile-preview {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.25rem;
+}
+
+.user-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  text-transform: uppercase;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.user-name-preview {
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-role-preview {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Mobile Header & Navigation */
+.mobile-header {
+  display: none;
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--card-border);
+  padding: 1rem 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--card-border);
+  z-index: 99;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.mobile-nav-list {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.mobile-nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+}
+
+.mobile-nav-link svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
+
+.mobile-nav-item.active .mobile-nav-link {
+  color: var(--accent-primary);
+}
+
+/* Main Content Area */
+.main-content {
+  margin-left: var(--sidebar-width);
+  flex-grow: 1;
+  padding: 2rem 3rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  transition: padding var(--transition-normal);
+}
+
+/* Tab Panels Visibility */
+.tab-panel {
+  display: none;
+  animation: tabFadeIn var(--transition-normal) forwards;
+}
+
+.tab-panel.active {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@keyframes tabFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Page Headers */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.page-subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  margin-top: 0.25rem;
+}
+
+/* ==========================================================================
+   GENERIC GLASS CARDS & UTILITIES
+   ========================================================================== */
+
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-normal), border-color var(--transition-normal);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-title svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--accent-primary);
+  stroke-width: 2;
+  fill: none;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: #ffffff;
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-primary:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(var(--accent-primary-rgb), 0.4);
+}
+
+.btn-secondary {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--card-border);
+}
+
+.btn-secondary:hover {
+  background-color: var(--card-border);
+}
+
+/* ==========================================================================
+   COMPONENT 1: STATS CARDS (Dashboard Grid)
+   ========================================================================== */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.stat-icon-wrapper {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.stat-icon-wrapper.calories {
+  background: linear-gradient(135deg, #f59e0b, #ea580c);
+}
+
+.stat-icon-wrapper.steps {
+  background: linear-gradient(135deg, #06b6d4, #0891b2);
+}
+
+.stat-icon-wrapper.water {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.stat-icon-wrapper.workouts {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.stat-icon-wrapper svg {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-number {
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.stat-target {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+/* ==========================================================================
+   COMPONENT 2: WATER TRACKER
+   ========================================================================== */
+
+.dashboard-row {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.5rem;
+}
+
+.water-card-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+/* Fluid Animation Glass Cup */
+.water-cup-container {
+  position: relative;
+  width: 130px;
+  height: 160px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 4px solid var(--text-primary);
+  border-top: none;
+  border-radius: 0 0 24px 24px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: flex-end;
+}
+
+.water-cup-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--text-primary);
+  opacity: 0.3;
+}
+
+.water-fluid {
+  position: relative;
+  width: 100%;
+  height: 0%; /* Dynamic height calculated in script.js */
+  background: linear-gradient(180deg, #60a5fa, #2563eb);
+  transition: height var(--transition-slow);
+}
+
+/* Animated Wave using SVG/Border radius spin */
+.water-fluid::after {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: -25%;
+  width: 150%;
+  height: 40px;
+  background: #60a5fa;
+  border-radius: 45%;
+  animation: waveSpin 8s infinite linear;
+}
+
+@keyframes waveSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.water-controls-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.water-progress-text {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--accent-secondary);
+}
+
+.water-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.water-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 1px solid var(--card-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+}
+
+.water-btn:hover {
+  background: var(--accent-primary);
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+/* ==========================================================================
+   COMPONENT 3: BMI CALCULATOR
+   ========================================================================== */
+
+.calculator-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-control {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-primary);
+  border: 2px solid transparent;
+  outline: none;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.input-control:focus {
+  border-color: var(--accent-primary);
+  background-color: var(--bg-secondary);
+  box-shadow: var(--shadow-glow);
+}
+
+.input-unit {
+  position: absolute;
+  right: 1.25rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* BMI Result Gauge & Category Scale */
+.bmi-result-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  background: linear-gradient(135deg, rgba(var(--accent-primary-rgb), 0.05), rgba(var(--accent-secondary-rgb), 0.05));
+}
+
+.bmi-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 8px solid var(--card-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-secondary);
+  box-shadow: var(--shadow-md);
+  transition: border-color var(--transition-normal);
+}
+
+.bmi-value {
+  font-size: 2.25rem;
+  font-weight: 800;
+}
+
+.bmi-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.bmi-category {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--accent-primary);
+}
+
+/* Horizontal Visual Gauge Slider */
+.bmi-gauge-scale {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.gauge-track {
+  height: 12px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #60a5fa 0%, #34d399 25%, #fbbf24 60%, #f87171 100%);
+  position: relative;
+}
+
+.gauge-pin {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--text-primary);
+  border: 3px solid #ffffff;
+  position: absolute;
+  top: -4px;
+  left: 0%; /* Computed in JS */
+  transform: translateX(-50%);
+  transition: left var(--transition-slow);
+  box-shadow: var(--shadow-sm);
+}
+
+.gauge-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   COMPONENT 4: CALORIE CALCULATOR
+   ========================================================================== */
+
+.activity-options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.radio-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  background: var(--bg-secondary);
+  transition: all var(--transition-fast);
+}
+
+.radio-card:hover {
+  border-color: var(--accent-primary);
+  background-color: rgba(var(--accent-primary-rgb), 0.02);
+}
+
+.radio-card input[type="radio"] {
+  accent-color: var(--accent-primary);
+}
+
+.radio-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.radio-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.radio-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   COMPONENT 5: WORKOUT PROGRESS & SEARCH FILTER
+   ========================================================================== */
+
+.workout-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.search-filter-wrapper {
+  display: flex;
+  gap: 1rem;
+  flex-grow: 0.5;
+}
+
+.search-input-wrapper {
+  position: relative;
+  flex-grow: 1;
+}
+
+.search-input-wrapper svg {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  stroke: var(--text-muted);
+  fill: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border-radius: var(--radius-md);
+  border: 2px solid transparent;
+  background-color: var(--card-bg);
+  outline: none;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  border: 1px solid var(--card-border);
+}
+
+.search-input:focus {
+  border-color: var(--accent-primary);
+  background-color: var(--bg-secondary);
+}
+
+/* Category Filter Tabs inside Workouts */
+.category-filters {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid var(--card-border);
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  transition: all var(--transition-fast);
+}
+
+.filter-btn.active {
+  background-color: var(--accent-primary);
+  color: #ffffff;
+  border-color: var(--accent-primary);
+}
+
+/* Workout Cards Grid */
+.workout-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.workout-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.workout-badge {
+  align-self: flex-start;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.workout-badge.cardio {
+  background-color: rgba(6, 182, 212, 0.1);
+  color: #06b6d4;
+}
+
+.workout-badge.strength {
+  background-color: rgba(168, 85, 247, 0.1);
+  color: #a855f7;
+}
+
+.workout-badge.flexibility {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+.workout-card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.workout-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.workout-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.workout-meta-item svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
+
+.workout-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  border-top: 1px solid var(--card-border);
+  padding-top: 1rem;
+}
+
+.workout-calories {
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--accent-secondary);
+}
+
+/* Interactive Check Toggle */
+.complete-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid var(--card-border);
+  background-color: var(--bg-primary);
+  transition: all var(--transition-fast);
+}
+
+.complete-toggle-btn.completed {
+  background-color: var(--accent-success);
+  color: #ffffff;
+  border-color: var(--accent-success);
+}
+
+.complete-toggle-btn svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  stroke-width: 3;
+  fill: none;
+}
+
+/* ==========================================================================
+   COMPONENT 6: FITNESS GOAL PROGRESS BAR
+   ========================================================================== */
+
+.goal-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.progress-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress-percentage-label {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--accent-primary);
+}
+
+/* Goal Progress Bar Outer */
+.progress-bar-container {
+  height: 16px;
+  background-color: var(--bg-primary);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--card-border);
+}
+
+/* Goal Progress Bar Inner */
+.progress-bar-fill {
+  height: 100%;
+  width: 0%; /* Dynamically calculated */
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  transition: width var(--transition-slow);
+  position: relative;
+  box-shadow: 0 0 10px rgba(var(--accent-primary-rgb), 0.5);
+}
+
+/* Checklist of Weekly Goals */
+.goals-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.goal-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--card-border);
+  background-color: var(--bg-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.goal-item:hover {
+  background-color: rgba(var(--accent-primary-rgb), 0.02);
+}
+
+.goal-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent-primary);
+  cursor: pointer;
+}
+
+.goal-text {
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.goal-item.checked .goal-text {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.goal-item.checked {
+  background-color: rgba(22, 163, 74, 0.05);
+  border-color: rgba(22, 163, 74, 0.2);
+}
+
+/* ==========================================================================
+   COMPONENT 7: FAQ ACCORDION (CSS & Slide Transitions)
+   ========================================================================== */
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faq-item {
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-secondary);
+  overflow: hidden;
+  transition: border-color var(--transition-normal);
+}
+
+.faq-item:hover {
+  border-color: var(--accent-primary);
+}
+
+.faq-header {
+  width: 100%;
+  padding: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color var(--transition-fast);
+}
+
+.faq-header:hover {
+  background-color: rgba(var(--accent-primary-rgb), 0.02);
+}
+
+.faq-icon {
+  width: 20px;
+  height: 20px;
+  stroke: var(--text-secondary);
+  stroke-width: 2;
+  fill: none;
+  transition: transform var(--transition-normal);
+}
+
+/* Accordion Open State Triggered by CSS classes */
+.faq-item.active .faq-icon {
+  transform: rotate(180deg);
+  stroke: var(--accent-primary);
+}
+
+.faq-item.active .faq-header {
+  color: var(--accent-primary);
+}
+
+/* CSS Grid Transition for perfect smooth accordion animation */
+.faq-content-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--transition-normal);
+}
+
+.faq-item.active .faq-content-wrapper {
+  grid-template-rows: 1fr;
+}
+
+.faq-content {
+  overflow: hidden;
+}
+
+.faq-body {
+  padding: 0 1.25rem 1.25rem 1.25rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   COMPONENT 8: MODAL POPUP
+   ========================================================================== */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(9, 13, 22, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-normal);
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-box {
+  width: 90%;
+  max-width: 520px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  transform: scale(0.9);
+  transition: transform var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-overlay.active .modal-box {
+  transform: scale(1);
+}
+
+.modal-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--card-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal-close-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.modal-close-btn:hover {
+  background-color: var(--accent-danger);
+  color: #ffffff;
+}
+
+.modal-close-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 2.5;
+}
+
+.modal-body {
+  padding: 1.5rem;
+  max-height: 60vh;
+  overflow-y: auto;
+  line-height: 1.6;
+}
+
+.tip-category-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 10px;
+  background-color: rgba(var(--accent-primary-rgb), 0.1);
+  color: var(--accent-primary);
+  margin-bottom: 1rem;
+}
+
+.modal-footer {
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid var(--card-border);
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ==========================================================================
+   COMPONENT 9: IMAGE SLIDER/CAROUSEL
+   ========================================================================== */
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  margin-top: 0.5rem;
+}
+
+.carousel-slides-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity var(--transition-slow);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Slider motivational texts overlay */
+.carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.3) 60%, rgba(0, 0, 0, 0.1) 100%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem;
+  color: #ffffff;
+  max-width: 60%;
+}
+
+.carousel-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-text {
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.9;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  line-height: 1.5;
+}
+
+/* Navigation Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all var(--transition-fast);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.carousel-arrow:hover {
+  background-color: var(--accent-primary);
+  border-color: var(--accent-primary);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.carousel-arrow.prev {
+  left: 1.5rem;
+}
+
+.carousel-arrow.next {
+  right: 1.5rem;
+}
+
+.carousel-arrow svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  fill: none;
+}
+
+/* Indicator dots */
+.carousel-dots {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  transition: all var(--transition-fast);
+}
+
+.carousel-dot.active {
+  background-color: var(--accent-primary);
+  width: 24px;
+  border-radius: 5px;
+}
+
+/* ==========================================================================
+   COMPONENT 10: PROFILE FORM & VALIDATION
+   ========================================================================== */
+
+.profile-layout {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 2rem;
+}
+
+.profile-avatar-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.profile-avatar-large {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  border: 4px solid var(--bg-secondary);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.form-grid-full {
+  grid-column: 1 / span 2;
+}
+
+/* Input validation styles */
+.input-control.error {
+  border-color: var(--accent-danger);
+  background-color: rgba(220, 38, 38, 0.02);
+}
+
+.input-control.success {
+  border-color: var(--accent-success);
+  background-color: rgba(22, 163, 74, 0.02);
+}
+
+.error-message {
+  color: var(--accent-danger);
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 0.35rem;
+  display: none;
+  animation: slideDown 0.2s forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Toast alert notification styling */
+.toast-notification {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: var(--bg-secondary);
+  border-left: 5px solid var(--accent-success);
+  box-shadow: var(--shadow-lg);
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 1010;
+  transform: translateY(120%);
+  opacity: 0;
+  transition: all var(--transition-normal);
+  border-top: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--card-border);
+  border-right: 1px solid var(--card-border);
+}
+
+.toast-notification.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.toast-icon {
+  color: var(--accent-success);
+  width: 24px;
+  height: 24px;
+  stroke-width: 2.5;
+  fill: none;
+}
+
+.toast-message {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   PROGRESS PAGE SPECIFICS
+   ========================================================================== */
+
+.progress-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* Simple CSS-only graph card styling */
+.graph-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.graph-container {
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: 1rem 0;
+  border-bottom: 2px solid var(--card-border);
+  border-left: 2px solid var(--card-border);
+  margin-top: 1rem;
+}
+
+.graph-bar-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.graph-bar {
+  width: 32px;
+  background: linear-gradient(180deg, var(--accent-secondary), var(--accent-primary));
+  border-radius: 6px 6px 0 0;
+  transition: height var(--transition-slow);
+  height: 0%; /* Animated via JS script */
+  position: relative;
+}
+
+.graph-bar:hover::after {
+  content: attr(data-value);
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--text-primary);
+  color: var(--bg-secondary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.graph-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+
+/* Tablet & Mobile Layout Shifts */
+@media (max-width: 1024px) {
+  :root {
+    --sidebar-width: 0px;
+  }
+  
+  body {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    display: none; /* Hide desktop sidebar */
+  }
+  
+  .mobile-header {
+    display: flex;
+  }
+  
+  .mobile-nav {
+    display: block;
+  }
+  
+  .main-content {
+    margin-left: 0;
+    padding: 6rem 1.5rem 6rem 1.5rem;
+  }
+  
+  .calculator-container,
+  .profile-layout,
+  .progress-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .dashboard-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-grid-full {
+    grid-column: span 1;
+  }
+  
+  .workout-header-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .search-filter-wrapper {
+    flex-direction: column;
+  }
+  
+  .category-filters {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+  }
+  
+  .carousel-overlay {
+    max-width: 100%;
+    padding: 1.5rem;
+  }
+  
+  .carousel-title {
+    font-size: 1.25rem;
+  }
+  
+  .carousel-text {
+    font-size: 0.85rem;
+  }
+}
