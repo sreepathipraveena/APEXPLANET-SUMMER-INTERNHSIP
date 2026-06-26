@@ -40,8 +40,8 @@ Instead of relying on heavy frameworks, I chose to build this using **Vanilla HT
 2. Solved responsive layout issues using CSS Grid, Flexbox, and fluid typography.
 3. Handled Chart.js instance destruction and update cycles to prevent canvas reuse bugs.
 
-Check out the repository here: 🔗 `[INSERT YOUR GITHUB URL HERE]`  
-Live Demo: 🔗 `[INSERT YOUR LIVE DEMO URL HERE]`
+Check out the repository here: 🔗 https://github.com/sreepathipraveena/APEXPLANET-SUMMER-INTERNHSIP/tree/07309cba2768036e6c67bdce90f5eef0e138483f/Task4
+Live Demo: 🔗 https://dapper-figolla-e8376e.netlify.app/
 
 A huge thank you to my mentors and peers who supported me during this learning journey! Looking forward to applying these skills in my next frontend development role.
 
