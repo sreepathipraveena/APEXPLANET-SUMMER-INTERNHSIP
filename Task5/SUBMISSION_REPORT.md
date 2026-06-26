@@ -1,7 +1,7 @@
 # Internship Final Submission Report
 
 **Project Title**: Student Placement Tracker  
-**Student Name**: Junior Frontend Developer  
+**Student Name**: Sreepathi Praveena
 **Internship Domain**: Front-end Web Development  
 **Submission Date**: June 26, 2026  
 
